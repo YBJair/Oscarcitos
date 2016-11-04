@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				<class name="PuntuancionConectadoEN" table="puntuancionConectado"> 
+				  	
+						<id name="Id" column="idPuntuancionConectado" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Puntuacion" type="integer"> 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="EsPuntuado" class="OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN" >	
+								<column name="FK_id_idComentario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Puntua" class="OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN" >	
+								<column name="FK_idUser_idConectado"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PuntuancionConectadoENReadAllHQL">from PuntuancionConectadoEN</query>
+		</hibernate-mapping>
+	

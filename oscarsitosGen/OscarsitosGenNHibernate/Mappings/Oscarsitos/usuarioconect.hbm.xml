@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				<class name="UsuarioConectEN" table="UsuarioConect"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Alias" type="string"> 
+						<column name="alias"  not-null="true"/>
+					</property>
+					<property name="FechaRegistro" type="date"> 
+						<column name="fechaRegistro"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Attribute" type="string"> 
+						<column name="attribute"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Comentario" class="OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN" >	
+								<column name="FK_id_idComentario"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioConectENReadAllHQL">from UsuarioConectEN</query>
+		  <query name="UsuarioConectENreadFilterHQL"><![CDATA[FROM UsuarioConectEN]]></query>
+		</hibernate-mapping>
+	

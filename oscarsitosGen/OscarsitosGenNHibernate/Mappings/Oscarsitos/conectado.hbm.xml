@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				
+<joined-subclass name="ConectadoEN" extends="OscarsitosGenNHibernate.EN.Oscarsitos.UserEN" table="Conectado"> 
+	<key>
+    	
+				<column name="idUser"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Alias" type="string"> 
+						<column name="alias"  not-null="true"/>
+					</property>
+					<property name="FechaRegistro" type="date"> 
+						<column name="fechaRegistro"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Suscrito" type="boolean"> 
+						<column name="suscrito"  not-null="true"/>
+					</property>
+					<property name="Imagen" type="string"> 
+						<column name="imagen"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_idUser_idUsuarioConect"/>
+					      	</key>
+							<one-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="EsFavorito" table="[articulo_conectado]" inverse="true" >
+							<key>
+								
+									<column name="FK_idUser_idConectado"/> 
+							</key>
+      						<many-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN">
+									<column name="FK_id_idArticulo"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Puntuancion" >
+							<key>
+							
+								
+								<column name="FK_idUser_idConectado"/>
+					      	</key>
+							<one-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Idioma" class="OscarsitosGenNHibernate.EN.Oscarsitos.IdiomaEN" >	
+								<column name="FK_idIdioma_idIdioma"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="ConectadoENReadAllHQL">from ConectadoEN</query>
+		</hibernate-mapping>
+	

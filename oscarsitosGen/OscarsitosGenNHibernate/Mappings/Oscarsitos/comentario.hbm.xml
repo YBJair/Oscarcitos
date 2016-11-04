@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				<class name="ComentarioEN" table="Comentario"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Contenido" type="string"> 
+						<column name="contenido"  not-null="true"/>
+					</property>
+					<property name="Puntuacion" type="integer"> 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Escritor" class="OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN" >	
+								<column name="FK_idUser_idUsuarioConect"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Articulo" class="OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN" >	
+								<column name="FK_id_idArticulo"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Puntuancion" >
+							<key>
+							
+								
+								<column name="FK_id_idComentario"/>
+					      	</key>
+							<one-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		</hibernate-mapping>
+	

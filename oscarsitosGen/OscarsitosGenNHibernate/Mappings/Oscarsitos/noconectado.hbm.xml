@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				
+<joined-subclass name="NoConectadoEN" extends="OscarsitosGenNHibernate.EN.Oscarsitos.UserEN" table="NoConectado"> 
+	<key>
+    	
+				<column name="idUser"/>
+		
+    	
+   	</key>
+
+			
+					
+			
+			
+		  			
+						<many-to-one name="Idioma_0" class="OscarsitosGenNHibernate.EN.Oscarsitos.IdiomaEN" >	
+								<column name="FK_idIdioma_idIdioma_0"/> 
+						</many-to-one>
+											 					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="NoConectadoENReadAllHQL">from NoConectadoEN</query>
+		</hibernate-mapping>
+	

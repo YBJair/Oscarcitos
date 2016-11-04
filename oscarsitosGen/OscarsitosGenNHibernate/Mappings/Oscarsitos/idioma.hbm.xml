@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="OscarsitosGenNHibernate"
+		                   namespace="OscarsitosGenNHibernate.EN.Oscarsitos">
+		    
+		    
+			
+				<class name="IdiomaEN" table="Idioma"> 
+				  	
+						<id name="Id" column="idIdioma" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Idioma" type="string"> 
+						<column name="idioma"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Conectado" >
+							<key>
+							
+								
+								<column name="FK_idIdioma_idIdioma"/>
+					      	</key>
+							<one-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="NoConectado" >
+							<key>
+							
+								
+								<column name="FK_idIdioma_idIdioma_0"/>
+					      	</key>
+							<one-to-many class="OscarsitosGenNHibernate.EN.Oscarsitos.NoConectadoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="IdiomaENReadAllHQL">from IdiomaEN</query>
+		</hibernate-mapping>
+	

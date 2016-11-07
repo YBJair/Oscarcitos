@@ -138,24 +138,22 @@ public void RelComent (int p_Conectado_OID, System.Collections.Generic.IList<int
 
         _IConectadoCAD.RelComent (p_Conectado_OID, p_comentario_OIDs);
 }
-public void Suscribir (int p_Conectado_OID, string p_nombre, string p_alias, Nullable<DateTime> p_fechaRegistro, String p_password, string p_email, bool p_suscrito, string p_imagen)
+public void Suscribir (int id)
 {
-        ConectadoEN conectadoEN = null;
+            //Debería haber sido custom y no modify. Errores de novato
+            ConectadoCEN conectadoCEN = new ConectadoCEN(_IConectadoCAD);
+            ConectadoEN conectado = conectadoCEN.ReadOID(id);
 
-        //Initialized ConectadoEN
-        conectadoEN = new ConectadoEN ();
-        conectadoEN.Id = p_Conectado_OID;
-        conectadoEN.Nombre = p_nombre;
-        conectadoEN.Alias = p_alias;
-        conectadoEN.FechaRegistro = p_fechaRegistro;
-        conectadoEN.Password = Utils.Util.GetEncondeMD5 (p_password);
-        conectadoEN.Email = p_email;
-        conectadoEN.Suscrito = p_suscrito;
-        conectadoEN.Imagen = p_imagen;
-        //Call to ConectadoCAD
+            if(conectado.Suscrito == true)
+               conectadoCEN.Modify(conectado.Id, conectado.Nombre, conectado.Alias, conectado.FechaRegistro, conectado.Password, conectado.Email,
+                 false, conectado.Imagen);
+            else
+                conectadoCEN.Modify(conectado.Id, conectado.Nombre, conectado.Alias, conectado.FechaRegistro, conectado.Password, conectado.Email,
+                 true, conectado.Imagen);
 
-        _IConectadoCAD.Suscribir (conectadoEN);
-}
+            _IConectadoCAD.Suscribir(conectado);
+
+        }
 
 public void UnrelPuntuacion (int p_Conectado_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs)
 {

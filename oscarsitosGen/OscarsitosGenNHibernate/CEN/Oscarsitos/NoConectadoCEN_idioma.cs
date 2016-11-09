@@ -21,13 +21,21 @@ public partial class NoConectadoCEN
 {
 public void Idioma (int p_oid)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_idioma) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_idioma) ENABLED START*/
 
-        // Write here your custom code...
+            IdiomaEN idiomaEN = null;
+            IIdiomaCAD _IIdiomaCAD = new IdiomaCAD();
 
-        throw new NotImplementedException ("Method Idioma() not yet implemented.");
-
-        /*PROTECTED REGION END*/
-}
+            if (p_oid != 0)
+            {
+                idiomaEN = _IIdiomaCAD.ReadOIDDefault(p_oid);
+                //SI EL USUARIO A SELECCIONADO UN IDIOMA LO BORRAMOS 
+                /*
+                if (NoConectadoEN.p_oid.Contains.(idiomaEN)) {
+                    IdiomaCEN.Remove(idiomaEN);
+                }*/
+            }
+            /*PROTECTED REGION END*/
+        }
 }
 }

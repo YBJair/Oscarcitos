@@ -21,13 +21,31 @@ public partial class AdminCEN
 {
 public void EditArticulo (int p_oid)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Admin_editArticulo) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Admin_editArticulo) ENABLED START*/
 
-        // Write here your custom code...
+            ArticuloEN articuloEN = null;
+            IArticuloCAD _IArticuloEN = null;
 
-        throw new NotImplementedException ("Method EditArticulo() not yet implemented.");
+            if (p_oid != 0)
+            {
+                articuloEN = _IArticuloEN.ReadOIDDefault(p_oid);
+                Articulo.Edit(articuloEN);
+            }
 
-        /*PROTECTED REGION END*/
-}
-}
+            /*ProductoEN productoEN = null;
+            CestaEN cestaEN = null;
+            IProductoCAD _IProductoCAD = new ProductoCAD();
+
+            if (idcesta != null && idproducto != null)
+            {
+                cestaEN = _ICestaCAD.ReadOIDDefault(idcesta);
+                productoEN = _IProductoCAD.ReadOIDDefault(idproducto);
+                if (!cestaEN.Producto.Contains(productoEN))
+                {
+                    cestaEN.Producto.Add(productoEN);
+                }
+            }*/
+            /*PROTECTED REGION END*/
+        }
+    }
 }

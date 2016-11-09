@@ -21,13 +21,18 @@ public partial class NoConectadoCEN
 {
 public void Conectar (int p_oid)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_conectar) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_conectar) ENABLED START*/
 
-        // Write here your custom code...
+            NoConectadoEN noConectadoEN = null;//USUARIO
+            ConectadoEN ConectadoEN = null;
 
-        throw new NotImplementedException ("Method Conectar() not yet implemented.");
-
-        /*PROTECTED REGION END*/
-}
+            //SI EL ID TIENE UN VALOR Y ID COINCIDE CON UN USUARIO CONECTADO
+            if (p_oid != 0 && p_oid == ConectadoEN.Id)
+            {
+                //CONECTAMOS
+                noConectadoEN = _INoConectadoCAD.ReadOIDDefault(p_oid);
+            }
+            /*PROTECTED REGION END*/
+        }
 }
 }

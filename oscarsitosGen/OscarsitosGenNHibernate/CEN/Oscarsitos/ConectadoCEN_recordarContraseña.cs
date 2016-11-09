@@ -19,13 +19,16 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 {
 public partial class ConectadoCEN
 {
-public void RecordarContraseña (int p_oid)
+        //Se le pasa el id del usuario
+        public string RecordarContraseña (int p_oid)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Conectado_recordarContraseña) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Conectado_recordarContraseña) ENABLED START*/
+            string pass = null;
 
-        // Write here your custom code...
+            ConectadoEN conectadoEN = _IConectadoCAD.ReadOIDDefault(p_oid);
+            pass = conectadoEN.Password;
 
-        throw new NotImplementedException ("Method RecordarContraseña() not yet implemented.");
+            return (pass);
 
         /*PROTECTED REGION END*/
 }

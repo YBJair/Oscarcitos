@@ -19,13 +19,19 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 {
 public partial class ConectadoCEN
 {
-public void Idioma (int p_oid)
+        //Se le pasa el id del usuario y del idioma deseado
+        public void Idioma (int p_oid, int p_idioma)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Conectado_idioma) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Conectado_idioma) ENABLED START*/
+            IdiomaCAD _IdiomaCAD;
+            
 
-        // Write here your custom code...
+            ConectadoEN conectadoEN = _IConectadoCAD.ReadOIDDefault(p_oid);
+            conectadoEN.Idioma = _IdiomaCAD.ReadOIDDefault(p_idioma);
 
-        throw new NotImplementedException ("Method Idioma() not yet implemented.");
+
+           
+        
 
         /*PROTECTED REGION END*/
 }

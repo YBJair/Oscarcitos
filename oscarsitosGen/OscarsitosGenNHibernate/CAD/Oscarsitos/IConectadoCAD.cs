@@ -8,6 +8,12 @@ public partial interface IConectadoCAD
 {
 ConectadoEN ReadOIDDefault (int id
                             );
+ConectadoEN ReadAlias(string alias
+                            );
+ConectadoEN ReadEmail(string email
+                            );
+ConectadoEN ReadPassword(string password
+                            );
 
 void ModifyDefault (ConectadoEN conectado);
 

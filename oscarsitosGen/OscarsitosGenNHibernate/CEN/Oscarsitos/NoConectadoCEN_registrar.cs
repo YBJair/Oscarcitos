@@ -20,21 +20,18 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 public partial class NoConectadoCEN
 {
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_registrar) ENABLED START*/
-        public bool Registrar(int p_oid, string email, string password)
-        {
+        public bool Registrar(string email, string password, string alias, string nombre){
             /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_registrar) ENABLED START*/
-            NoConectadoEN noConectadoEN = null;
-            ConectadoEN ConectadoEN = null;
+            NoConectadoEN noConectadoEN = new NoConectadoEN();
+            ConectadoEN conectadoEN = new ConectadoEN();
             bool login = false;
 
-            //SI HA INTRODUCIDO EL EMAIL Y LA CONTRASENYA Y EL ID AUN NO EXISTE EN NUESTRA BD 
-            if (email != ConectadoEN.I && password != null && p_oid != ConectadoEN.Id)
-            {
-                noConectadoEN = _INoConectadoCAD.ReadOIDDefault(p_oid);
-                if (ConectadoEN.Password == password)
-                {
-                    login = true;
-                }
+            //REGISTRAR LLAMA A NEW DE CONECTADO
+            //CREAR CUENTA NUEVA Y METERLA EN LA BASE DE DATOS
+            IConectadoCAD _IConectadoCAD = new ConectadoCAD();
+            conectadoEN = _IConectadoCAD.ReadEmail(email);
+            if (conectadoEN==null){
+                login = true;
             }
             return login;
             /*PROTECTED REGION END*/

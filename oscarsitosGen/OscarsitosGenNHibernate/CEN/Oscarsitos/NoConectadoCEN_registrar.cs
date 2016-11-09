@@ -28,7 +28,7 @@ public partial class NoConectadoCEN
             bool login = false;
 
             //SI HA INTRODUCIDO EL EMAIL Y LA CONTRASENYA Y EL ID AUN NO EXISTE EN NUESTRA BD 
-            if (email != null && password != null && p_oid != ConectadoEN.Id)
+            if (email != ConectadoEN.I && password != null && p_oid != ConectadoEN.Id)
             {
                 noConectadoEN = _INoConectadoCAD.ReadOIDDefault(p_oid);
                 if (ConectadoEN.Password == password)

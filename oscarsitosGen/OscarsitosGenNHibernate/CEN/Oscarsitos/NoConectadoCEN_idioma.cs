@@ -30,10 +30,10 @@ public void Idioma (int p_oid)
             {
                 idiomaEN = _IIdiomaCAD.ReadOIDDefault(p_oid);
                 //SI EL USUARIO A SELECCIONADO UN IDIOMA LO BORRAMOS 
-                /*
+                
                 if (NoConectadoEN.p_oid.Contains.(idiomaEN)) {
                     IdiomaCEN.Remove(idiomaEN);
-                }*/
+                }
             }
             /*PROTECTED REGION END*/
         }

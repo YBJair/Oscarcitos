@@ -8,8 +8,12 @@ public partial interface IPuntuancionConectadoCAD
 {
 PuntuancionConectadoEN ReadOIDDefault (int id
                                        );
+PuntuancionConectadoEN ReadUser(int id
+                                       );
+PuntuancionConectadoEN ReadComentario(int id
+                                       );
 
-void ModifyDefault (PuntuancionConectadoEN puntuancionConectado);
+        void ModifyDefault (PuntuancionConectadoEN puntuancionConectado);
 
 
 

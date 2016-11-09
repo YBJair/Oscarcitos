@@ -107,19 +107,7 @@ public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int si
         list = _IComentarioCAD.ReadAll (first, size);
         return list;
 }
-public void Puntuar (int p_Comentario_OID, string p_contenido, int p_puntuacion)
-{
-        ComentarioEN comentarioEN = null;
 
-        //Initialized ComentarioEN
-        comentarioEN = new ComentarioEN ();
-        comentarioEN.Id = p_Comentario_OID;
-        comentarioEN.Contenido = p_contenido;
-        comentarioEN.Puntuacion = p_puntuacion;
-        //Call to ComentarioCAD
-
-        _IComentarioCAD.Puntuar (comentarioEN);
-}
 
 public void RelPunt (int p_Comentario_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs)
 {

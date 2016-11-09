@@ -57,7 +57,64 @@ public PuntuancionConectadoEN ReadOIDDefault (int id
         return puntuancionConectadoEN;
 }
 
-public System.Collections.Generic.IList<PuntuancionConectadoEN> ReadAllDefault (int first, int size)
+        public PuntuancionConectadoEN ReadUser(int id
+                                              )
+        {
+            PuntuancionConectadoEN puntuancionConectadoEN = null;
+
+            try
+            {
+                SessionInitializeTransaction();
+                puntuancionConectadoEN = (PuntuancionConectadoEN)session.Get(typeof(PuntuancionConectadoEN), id);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in PuntuancionConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return puntuancionConectadoEN;
+        }
+
+        public PuntuancionConectadoEN ReadComentario(int id
+                                              )
+        {
+            PuntuancionConectadoEN puntuancionConectadoEN = null;
+
+            try
+            {
+                SessionInitializeTransaction();
+                puntuancionConectadoEN = (PuntuancionConectadoEN)session.Get(typeof(PuntuancionConectadoEN), id);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in PuntuancionConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return puntuancionConectadoEN;
+        }
+        public System.Collections.Generic.IList<PuntuancionConectadoEN> ReadAllDefault (int first, int size)
 {
         System.Collections.Generic.IList<PuntuancionConectadoEN> result = null;
         try

@@ -23,17 +23,17 @@ public partial class ConectadoCEN
         public void Idioma (int p_oid, int p_idioma)
 {
             /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Conectado_idioma) ENABLED START*/
-            IdiomaCAD _IdiomaCAD;
+            IdiomaCAD _IdiomaCAD = new IdiomaCAD();
             
 
             ConectadoEN conectadoEN = _IConectadoCAD.ReadOIDDefault(p_oid);
             conectadoEN.Idioma = _IdiomaCAD.ReadOIDDefault(p_idioma);
 
+            _IConectadoCAD.Modify(conectadoEN);
 
-           
-        
 
-        /*PROTECTED REGION END*/
-}
+
+            /*PROTECTED REGION END*/
+        }
 }
 }

@@ -296,7 +296,93 @@ public ConectadoEN ReadOID (int id
         return conectadoEN;
 }
 
-public void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs)
+public ConectadoEN ReadAlias(string alias
+                                   )
+        {
+            ConectadoEN conectadoEN = null;
+
+            try
+            {
+                SessionInitializeTransaction();
+                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), alias);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return conectadoEN;
+        }
+
+public ConectadoEN ReadEmail(string email
+                                   )
+        {
+            ConectadoEN conectadoEN = null;
+
+            try
+            {
+                SessionInitializeTransaction();
+                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), email);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return conectadoEN;
+        }
+
+public ConectadoEN ReadPassword(string pass
+                                   )
+        {
+            ConectadoEN conectadoEN = null;
+
+            try
+            {
+                SessionInitializeTransaction();
+                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), pass);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return conectadoEN;
+        }
+        public void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs)
 {
         OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN conectadoEN = null;
         try

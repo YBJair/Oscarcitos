@@ -19,15 +19,18 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 {
 public partial class RedactorCEN
 {
-public void EditArticuloPropio (int p_oid)
+public void EditArticuloPropio (int p_oid, string cont, Nullable<DateTime> fechPubli, OscarsitosGenNHibernate.Enumerated.Oscarsitos.CategArticuloEnum categoria, string titulo, bool titular, bool visible, string imagen)
 {
-        /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Redactor_editArticuloPropio) ENABLED START*/
+            /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Redactor_editArticuloPropio) ENABLED START*/
+            RedactorEN redactorEN = new RedactorEN();
+            RedactorCEN RedactorCEN = new RedactorCEN();
+            ArticuloCEN articuloCEN = new ArticuloCEN();
+           
+            if (p_oid != 0 && redactorEN.Id == p_oid){
 
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method EditArticuloPropio() not yet implemented.");
-
-        /*PROTECTED REGION END*/
-}
+                articuloCEN.Modify(p_oid, cont, fechPubli, categoria, titulo, titular, visible, imagen);
+            }   
+            /*PROTECTED REGION END*/
+        }
 }
 }

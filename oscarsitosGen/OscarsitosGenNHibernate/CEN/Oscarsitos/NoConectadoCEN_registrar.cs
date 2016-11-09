@@ -32,7 +32,7 @@ public partial class NoConectadoCEN
             IConectadoCAD _IConectadoCAD = new ConectadoCAD();
             conectadoEN = _IConectadoCAD.ReadEmail(email);
             if (conectadoEN==null){
-                ConectadoCEN.New_(nombre, alias, fechRegistro, password, email, suscrito, idioma, imagen);
+                ConectadoEN = ConectadoCEN.New_(nombre, alias, fechRegistro, password, email, suscrito, idioma, imagen);
                 login = true;
             }
             return login;

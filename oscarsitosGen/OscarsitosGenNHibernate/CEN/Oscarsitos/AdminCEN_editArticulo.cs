@@ -28,7 +28,7 @@ public void EditArticulo (int p_oid)
 
             if (p_oid != 0)
             {
-                articuloEN = _IArticuloEN.ReadOIDDefault(p_oid);
+                articuloEN = _IArticuloEN.ReadOIDDefault(p_oid);//CAPTURAR EL DATO
                 Articulo.Edit(articuloEN);
             }
 

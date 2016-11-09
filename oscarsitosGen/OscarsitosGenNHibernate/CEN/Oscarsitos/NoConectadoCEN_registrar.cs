@@ -20,9 +20,10 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 public partial class NoConectadoCEN
 {
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_registrar) ENABLED START*/
-        public bool Registrar(string email, string password, string alias, string nombre){
+        public bool Registrar(string email, string password, string alias, string nombre, string imagen, Nullable<DateTime> fechRegistro, int idioma, bool suscrito)
+        {
             /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_NoConectado_registrar) ENABLED START*/
-            NoConectadoEN noConectadoEN = new NoConectadoEN();
+            //NoConectadoEN noConectadoEN = new NoConectadoEN();
             ConectadoEN conectadoEN = new ConectadoEN();
             bool login = false;
 
@@ -31,6 +32,7 @@ public partial class NoConectadoCEN
             IConectadoCAD _IConectadoCAD = new ConectadoCAD();
             conectadoEN = _IConectadoCAD.ReadEmail(email);
             if (conectadoEN==null){
+                ConectadoCEN.New_(nombre, alias, fechRegistro, password, email, suscrito, idioma, imagen);
                 login = true;
             }
             return login;

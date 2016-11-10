@@ -22,11 +22,7 @@ public partial class RedactorCEN
 public void PublicarArticulo (int p_oid)
 {
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Redactor_publicarArticulo) ENABLED START*/
-
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method PublicarArticulo() not yet implemented.");
-
+        
         /*PROTECTED REGION END*/
 }
 }

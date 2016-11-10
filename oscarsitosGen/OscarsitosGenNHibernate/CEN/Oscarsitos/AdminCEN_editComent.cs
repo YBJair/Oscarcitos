@@ -19,15 +19,18 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 {
 public partial class AdminCEN
 {
-public void EditComent (int p_oid)
+public void EditComent (int p_oid, int p_comentario)
 {
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Admin_editComent) ENABLED START*/
+        AdminCAD _AdminCAD = new AdminCAD();
+        ComentarioCAD _IComentarioCAD = new ComentarioCAD();
 
-        // Write here your custom code...
+        ComentarioEN comentarioEN = _IComentarioCAD.ReadOIDDefault(p_oid);
+        comentarioEN = _IComentarioCAD.ReadOIDDefault(p_comentario);
 
-        throw new NotImplementedException ("Method EditComent() not yet implemented.");
-
-        /*PROTECTED REGION END*/
-}
+        _IComentarioCAD.Modify(comentarioEN);
+            
+         /*PROTECTED REGION END*/
+        }
 }
 }

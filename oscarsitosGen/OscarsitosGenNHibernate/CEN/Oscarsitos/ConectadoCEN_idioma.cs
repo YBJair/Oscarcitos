@@ -30,9 +30,7 @@ public partial class ConectadoCEN
             conectadoEN.Idioma = _IdiomaCAD.ReadOIDDefault(p_idioma);
 
             _IConectadoCAD.Modify(conectadoEN);
-
-
-
+            
             /*PROTECTED REGION END*/
         }
 }

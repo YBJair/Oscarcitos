@@ -24,8 +24,9 @@ public void EditComent (int p_oid, int p_comentario)
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Admin_editComent) ENABLED START*/
         AdminCAD _AdminCAD = new AdminCAD();
         ComentarioCAD _IComentarioCAD = new ComentarioCAD();
+        ComentarioEN comentarioEN = new ComentarioEN();
 
-        ComentarioEN comentarioEN = _IComentarioCAD.ReadOIDDefault(p_oid);
+        AdminEN adminEN = _AdminCAD.ReadOIDDefault(p_oid);
         comentarioEN = _IComentarioCAD.ReadOIDDefault(p_comentario);
 
         _IComentarioCAD.Modify(comentarioEN);

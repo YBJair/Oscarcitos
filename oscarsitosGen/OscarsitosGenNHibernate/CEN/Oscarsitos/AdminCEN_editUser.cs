@@ -28,6 +28,7 @@ public void EditUser (int p_oid, int p_user)
 
         AdminEN adminEN = _AdminCAD.ReadOIDDefault(p_oid);
         userEN = _IUserCAD.ReadOIDDefault(p_user);
+
         _IUserCAD.Modify(userEN);
         /*PROTECTED REGION END*/
         }

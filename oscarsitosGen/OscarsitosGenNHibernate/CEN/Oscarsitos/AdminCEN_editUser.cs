@@ -19,15 +19,17 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
 {
 public partial class AdminCEN
 {
-public void EditUser (int p_oid)
+public void EditUser (int p_oid, int p_user)
 {
         /*PROTECTED REGION ID(OscarsitosGenNHibernate.CEN.Oscarsitos_Admin_editUser) ENABLED START*/
+        AdminCAD _AdminCAD = new AdminCAD();
+        UserCAD _IUserCAD = new UserCAD();
+        UserEN userEN = new UserEN();
 
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method EditUser() not yet implemented.");
-
+        AdminEN adminEN = _AdminCAD.ReadOIDDefault(p_oid);
+        userEN = _IUserCAD.ReadOIDDefault(p_user);
+        _IUserCAD.Modify(userEN);
         /*PROTECTED REGION END*/
-}
+        }
 }
 }

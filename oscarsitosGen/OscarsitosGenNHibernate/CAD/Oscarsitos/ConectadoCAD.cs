@@ -296,15 +296,18 @@ public ConectadoEN ReadOID (int id
         return conectadoEN;
 }
 
-public ConectadoEN ReadAlias(string alias
-                                   )
+        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e)
         {
-            ConectadoEN conectadoEN = null;
-
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
             {
                 SessionInitializeTransaction();
-                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), alias);
+                //String sql = @"FROM ConectadoEN c self where FROM c where c.email = :email";
+                //IQuery query = session.CreateQuery(sql);
+                //query.setParameter("email", e);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
             }
 
@@ -322,18 +325,21 @@ public ConectadoEN ReadAlias(string alias
                 SessionClose();
             }
 
-            return conectadoEN;
+            return result;
         }
 
-public ConectadoEN ReadEmail(string email
-                                   )
+        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e)
         {
-            ConectadoEN conectadoEN = null;
-
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
             {
                 SessionInitializeTransaction();
-                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), email);
+                //String sql = @"FROM ConectadoEN c self where FROM c where c.alias = :alias";
+                //IQuery query = session.CreateQuery(sql);
+                //query.setParameter("alias", e);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
             }
 
@@ -351,18 +357,21 @@ public ConectadoEN ReadEmail(string email
                 SessionClose();
             }
 
-            return conectadoEN;
+            return result;
         }
 
-public ConectadoEN ReadPassword(string pass
-                                   )
+        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e)
         {
-            ConectadoEN conectadoEN = null;
-
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
             {
                 SessionInitializeTransaction();
-                conectadoEN = (ConectadoEN)session.Get(typeof(ConectadoEN), pass);
+                //String sql = @"FROM ConectadoEN c where c.password = :password";
+                //IQuery query = session.CreateQuery(sql);
+                //query.setParameter("password", e);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
             }
 
@@ -380,8 +389,44 @@ public ConectadoEN ReadPassword(string pass
                 SessionClose();
             }
 
-            return conectadoEN;
+            return result;
         }
+        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadCoche(int oid)
+        {
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM PepeEN pp where pp.id = :id";
+                //IQuery query = session.CreateQuery(sql);
+                //query.setParameter("id", oid);
+                IQuery query = (IQuery)session.GetNamedQuery("PepeENreadCocheHQL");
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in PepeCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
+        
+
+
+
+
         public void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs)
 {
         OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN conectadoEN = null;

@@ -80,8 +80,66 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
 
-                // p.e. CustomerCEN customer = new CustomerCEN();
-                // customer.New_ (p_user:"user", p_password:"1234");
+                AdminCen admi = new AdminCen ();
+				//idioma?
+				admi.New_("Paco Gonzalez Garcia", "Paconator", new DateTime(1990,08,03), "123456", "paconator26@hotmail.com", true, "http://r30.imgfast.net/users/3017/12/50/30/avatars/640-22.jpg");
+				admi.New_("Laura Gutierrez Fuentes", "Larra", new DateTime(1989,10,12), "password", "larrarosa@gmail.com", true, "http://vignette3.wikia.nocookie.net/hieloyfuego/images/d/d6/A_Lyseni_noblewoman_by_Magali_Villeneuve%C2%A9.jpg/revision/latest?cb=20150214193400");
+				admi.New_("Luis Sanchez Aroca", "Luis S.A.", new DateTime(1992,02,22), "contraseña", "luisSociedadAnonima@gmail.com", false, "https://s-media-cache-ak0.pinimg.com/236x/12/c4/6a/12c46a55fd7c5257f1eae1e1f49c49ac.jpg");
+				
+				ArticuloCen art = new ArticuloCen ();
+				//redacta?
+				art.New_("Bla blablablablablablablablablablablabla blabla", new DateTime(2013,11,07), Rosa, "Paquito clavo un clavito", true, true, "http://1.bp.blogspot.com/-CDKU6JbgfDs/UzqMzGs9W2I/AAAAAAAAAKc/SBoA2yBhkBg/s1600/pabl.png");
+				art.New_("Blebleble bleblebleblebleblebleblebleble", new DateTime(2013,11,06), Estrenos, "Tom es el nuevo Bartman", true, true, "http://img10.deviantart.net/e750/i/2008/170/e/0/i_am_bartman__by_leif_j.png");
+				art.New_("Bla blablablablabla blobloblobloblo blablablablablablabla blabla", new DateTime(2013,11,10), Rumores, "Sara protagonizara Un viaje a tu casa", false, true, "https://jetmarinspiraviajar.files.wordpress.com/2015/06/blog_balanza1.jpg");
+				art.New_("Blublublu bliblibli blablablablablablablablablablablabla blabla", new DateTime(2013,11, 12), Curiosidades, "Gazapos en el rodaje de SuperShurperro", false, false, "http://i47.tinypic.com/4g3jtt.jpg");
+				
+				ComentarioCen comen = new ComentarioCen ();
+				//escritor y articulo?
+				comen.New_("Te odio Juan Hanks!", 256);
+				comen.New_("Yo aparqué ahí ayer", 3);
+				comen.New_("Ojalá rueden aqui y necesiten extras", 0);
+				comen.New_("Dos chicas sin blanca es una serie muy buena", -30);
+				
+				ConectadoCen conec = new ConectadoCen ();
+				//idioma?
+				conec.New_("John Jonero Jonancio", "JoJoJo", new DateTime(1991,11,13), "pass", "tripleJ@gmail.com", false, "http://m.memegen.com/1j7mtm.jpg");
+				conec.New_("Tum Tumtum Tumtumtum", "Tumx6", new DateTime(1995,10,10), "tumaqueguay", "tum666@hotmail.com", true, "http://m.memegen.com/sg0yim.jpg");
+				conec.New_("Bruno Lee", "LeeBru", new DateTime(1986,01,02), "leeunlibru", "BrunoBrunoBruno@gmail.com", false, "https://s-media-cache-ak0.pinimg.com/236x/7a/10/88/7a1088b474181b312d12b4fb2565cf7d.jpg	");
+				conec.New_("Maria Muffin", "LovePalomas", new DateTime(1998,05,24), "jajaja", "SacredMuffin@gmail.com", true, "http://img.desmotivaciones.es/201107/MariaMuffin.jpg");
+				conec.New_("Jair Powa", "DigoJairPaReirme", new DateTime(1988,08,30), "garagefruit", "culonia@hotmail.com", true, "http://m.memegen.com/v47sxo.jpg");
+				
+				IdiomaCen idio = new IdiomaCen ();
+				idio.New_("Castellano");
+				idio.New_("Ingles");
+				idio.New_("Aleman");
+				idio.New_("Frances");
+				
+				NoConectadoCen nconCen = new NoConectadoCen ();
+				//idioma?
+				
+				PuntuacionConectadoCen puntCen = new PuntuacionConectadoCen ();
+				//espuntuado puntua?
+				puntCen.New_(0);
+				puntCen.New_(0);
+				puntCen.New_(0);
+				puntCen.New_(0);
+											
+				RedactorCen redCen = new RedactorCen ();
+				//idioma?
+				redCen.New_("Juan Lujan Fernandez", "JuanLuFer", new DateTime(1981,09,13), "jajajajeje", "julufe@hotmail.com", false, "https://kiwicdn.akamaized.net/6c10/ELxRqkM4UYyi4EQRxL2pER_150.jpg");
+				redCen.New_("Fernanda Gomariz Sanchez", "GomaGoma", new DateTime(1985,12,12), "gomugomu", "akuma@gmail.com", true, "http://papels.es/gestion/imagenesges/zoom/goma-borrar-milan-430.png");
+				redCen.New_("Vicente Blasco Ibanez", "MorFil", new DateTime(1970,01,28), "tadeloemon", "superintendentevicente@gmail.com", true, "http://vignette4.wikia.nocookie.net/mortadelo/images/f/f6/Se%C3%B1or_s%C3%BAper.jpg/revision/latest?cb=20110622161302&path-prefix=es");
+				
+				UserCen userCen = new userCen ();
+				
+				UsuarioConectCen usconCen = new usconCen ();
+				//comentario?
+				usconCen.New_("Jose Escalejo Muniz", "joes", new DateTime(1978,12,20), "jajajojojeje", "joes@gmail.com");//attribute?
+				usconCen.New_("Sara Gertrude Garcia", "saGer", new DateTime(1992,10,01), "esagerado", "saGer@hotmail.com");//attribute?
+				usconCen.New_("Perico Palotes", "Palote", new DateTime(1980,04,05), "perpalo", "perpalo@hotmail.com");//attribute?
+				
+				
+				UsuarioNoConectCen usnoconCen = new usnoconCen ();
 
 
 

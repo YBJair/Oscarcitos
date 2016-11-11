@@ -27,7 +27,6 @@ public RedactorCEN()
 {
         this._IRedactorCAD = new RedactorCAD ();
 }
-
 public RedactorCEN(IRedactorCAD _IRedactorCAD)
 {
         this._IRedactorCAD = _IRedactorCAD;
@@ -37,7 +36,6 @@ public IRedactorCAD get_IRedactorCAD ()
 {
         return this._IRedactorCAD;
 }
-
 public int New_ (string p_nombre, string p_alias, Nullable<DateTime> p_fechaRegistro, String p_password, string p_email, bool p_suscrito, int p_idioma, string p_imagen)
 {
         RedactorEN redactorEN = null;

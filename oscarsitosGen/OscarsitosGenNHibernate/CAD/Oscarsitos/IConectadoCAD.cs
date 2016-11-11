@@ -8,12 +8,6 @@ public partial interface IConectadoCAD
 {
 ConectadoEN ReadOIDDefault (int id
                             );
-System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e
-                            );
-System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e
-                            );
-System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e
-                            );
 
 void ModifyDefault (ConectadoEN conectado);
 
@@ -50,5 +44,8 @@ void Suscribir (ConectadoEN conectado);
 
 
 void UnrelPuntuacion (int p_Conectado_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs);
+void UnrelComent(int p_Conectado_OID, System.Collections.Generic.IList<int> p_coment_OIDs);
+    }
 }
-}
+
+

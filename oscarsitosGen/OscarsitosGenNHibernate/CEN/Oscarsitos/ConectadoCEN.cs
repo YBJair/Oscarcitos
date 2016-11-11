@@ -161,5 +161,11 @@ public void UnrelPuntuacion (int p_Conectado_OID, System.Collections.Generic.ILi
 
         _IConectadoCAD.UnrelPuntuacion (p_Conectado_OID, p_puntuancion_OIDs);
 }
+public void UnrelComent(int p_Conectado_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs)
+{
+            //Call to ConectadoCAD
+
+_IConectadoCAD.UnrelPuntuacion(p_Conectado_OID, p_puntuancion_OIDs);
 }
+    }
 }

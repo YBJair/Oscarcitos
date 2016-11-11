@@ -27,9 +27,9 @@ public bool Conectar (string password, string texto)
             bool login = false;
             //SI EL ID TIENE UN VALOR Y ID COINCIDE CON UN USUARIO CONECTADO
             
-            conectadoEN = _IConectadoCAD.ReadAlias(texto);
+            conectadoEN = _IConectadoCAD.ReadAlias(texto)[0];
             if (conectadoEN == null) {
-                conectadoEN = _IConectadoCAD.ReadEmail(texto);
+                conectadoEN = _IConectadoCAD.ReadEmail(texto)[0];
             }
             if (conectadoEN != null && conectadoEN.Password == password) {
                 login = true;

@@ -295,15 +295,16 @@ public ArticuloEN ReadOID (int id
         return articuloEN;
 }
 
-public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher ()
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher (int p_publisher_oid)
 {
         System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ArticuloEN self where FROM ArticuloEN";
+                //String sql = @"FROM ArticuloEN a where a.Redacta = :p_publisher_oid";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ArticuloENreadPublisherHQL");
+                query.SetParameter("p_publisher_oid", p_publisher_oid);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN>();
                 SessionCommit ();

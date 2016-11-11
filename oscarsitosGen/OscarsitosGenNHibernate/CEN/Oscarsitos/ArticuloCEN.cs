@@ -114,9 +114,9 @@ public ArticuloEN ReadOID (int id
         return articuloEN;
 }
 
-public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher ()
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher (int p_publisher_oid)
 {
-        return _IArticuloCAD.ReadPublisher ();
+        return _IArticuloCAD.ReadPublisher(p_publisher_oid);
 }
 public void RelComentario (int p_Articulo_OID, System.Collections.Generic.IList<int> p_comentario_OIDs)
 {

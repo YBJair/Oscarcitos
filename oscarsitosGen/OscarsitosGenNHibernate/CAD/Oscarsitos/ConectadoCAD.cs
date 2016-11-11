@@ -82,9 +82,109 @@ public System.Collections.Generic.IList<ConectadoEN> ReadAllDefault (int first, 
         return result;
 }
 
-// Modify default (Update all attributes of the class)
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e)
+        {
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM ConectadoEN c self where FROM c where c.email = :email";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.SetParameter("email", e);
 
-public void ModifyDefault (ConectadoEN conectado)
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
+
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e)
+        {
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM ConectadoEN c self where FROM c where c.alias = :alias";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.SetParameter("alias", e);
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
+
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e)
+        {
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM ConectadoEN c where c.password = :password";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.SetParameter("password", e);
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
+
+
+
+
+
+        // Modify default (Update all attributes of the class)
+
+        public void ModifyDefault (ConectadoEN conectado)
 {
         try
         {

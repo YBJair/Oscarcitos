@@ -28,6 +28,12 @@ System.Collections.Generic.IList<ConectadoEN> ReadAll (int first, int size);
 ConectadoEN ReadOID (int id
                      );
 
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e
+                            );
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e
+                                    );
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e
+                                    );
 
 void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs);
 

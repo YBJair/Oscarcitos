@@ -36,12 +36,11 @@ public void Idioma (int p_oid, int p_idioma)
                 }
             }*/
             IdiomaCAD _IdiomaCAD = new IdiomaCAD();
-            IConectadoCAD _IConectadoCAD = new ConectadoCAD();
 
-            ConectadoEN conectadoEN = _IConectadoCAD.ReadOIDDefault(p_oid);
-            conectadoEN.Idioma = _IdiomaCAD.ReadOIDDefault(p_idioma);
+            NoConectadoEN noConectadoEN = _INoConectadoCAD.ReadOIDDefault(p_oid);
+            noConectadoEN.Idioma_0 = _IdiomaCAD.ReadOIDDefault(p_idioma);
 
-            _IConectadoCAD.Modify(conectadoEN);
+            _INoConectadoCAD.ModifyDefault(noConectadoEN);
             /*PROTECTED REGION END*/
         }
 }

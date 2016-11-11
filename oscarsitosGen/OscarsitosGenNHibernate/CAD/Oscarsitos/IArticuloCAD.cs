@@ -30,7 +30,7 @@ ArticuloEN ReadOID (int id
 
 
 
-System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher ();
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> ReadPublisher (int p_publisher_oid);
 
 
 void RelComentario (int p_Articulo_OID, System.Collections.Generic.IList<int> p_comentario_OIDs);

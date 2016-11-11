@@ -124,8 +124,8 @@ public PuntuancionConectadoEN ReadOIDDefault (int id
                 //String sql = @"FROM PuntuancionConectadoEN pc where ((pc.EsPuntuado.Id = :id_coment) and (pc.Puntua.Id = :id_user))";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery("PepeENreadCocheHQL");
-                query.setParameter("id_user", id_user);
-                query.setParameter("id_coment", id_coment);
+                query.SetParameter("id_user", id_user);
+                query.SetParameter("id_coment", id_coment);
 
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN>();

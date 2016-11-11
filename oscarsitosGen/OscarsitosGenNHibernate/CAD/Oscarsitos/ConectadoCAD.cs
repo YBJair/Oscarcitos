@@ -305,7 +305,7 @@ public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.Co
                 //String sql = @"FROM ConectadoEN c self where FROM c where c.email = :email";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.setParameter("email", e);
+                query.SetParameter("email", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
@@ -337,7 +337,7 @@ public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.Co
                 //String sql = @"FROM ConectadoEN c self where FROM c where c.alias = :alias";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.setParameter("alias", e);
+                query.SetParameter("alias", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
@@ -369,7 +369,7 @@ public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.Co
                 //String sql = @"FROM ConectadoEN c where c.password = :password";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.setParameter("password", e);
+                query.SetParameter("password", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();

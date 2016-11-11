@@ -32,22 +32,22 @@ public RedactorEN() : base ()
 
 
 
-public RedactorEN(int id, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> redactado
+public RedactorEN(int id, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> redactado,
                   string nombre, string alias, Nullable<DateTime> fechaRegistro, String password, string email, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN> comentario, bool suscrito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> esFavorito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> puntuancion, OscarsitosGenNHibernate.EN.Oscarsitos.IdiomaEN idioma, string imagen
 
                   )
 {
-        this.init (Id, redactado nombre, alias, fechaRegistro, password, email, comentario, suscrito, esFavorito, puntuancion, idioma, imagen);
+        this.init (Id, redactado, nombre, alias, fechaRegistro, password, email, comentario, suscrito, esFavorito, puntuancion, idioma, imagen);
 }
 
 
 public RedactorEN(RedactorEN redactor)
 {
-        this.init (Id, redactor.Redactado redactor.Nombre, redactor.Alias, redactor.FechaRegistro, redactor.Password, redactor.Email, redactor.Comentario, redactor.Suscrito, redactor.EsFavorito, redactor.Puntuancion, redactor.Idioma, redactor.Imagen);
+        this.init (Id, redactor.Redactado, redactor.Nombre, redactor.Alias, redactor.FechaRegistro, redactor.Password, redactor.Email, redactor.Comentario, redactor.Suscrito, redactor.EsFavorito, redactor.Puntuancion, redactor.Idioma, redactor.Imagen);
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> redactado string nombre, string alias, Nullable<DateTime> fechaRegistro, String password, string email, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN> comentario, bool suscrito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> esFavorito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> puntuancion, OscarsitosGenNHibernate.EN.Oscarsitos.IdiomaEN idioma, string imagen)
+                   , System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> redactado, string nombre, string alias, Nullable<DateTime> fechaRegistro, String password, string email, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN> comentario, bool suscrito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ArticuloEN> esFavorito, System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> puntuancion, OscarsitosGenNHibernate.EN.Oscarsitos.IdiomaEN idioma, string imagen)
 {
         this.Id = id;
 

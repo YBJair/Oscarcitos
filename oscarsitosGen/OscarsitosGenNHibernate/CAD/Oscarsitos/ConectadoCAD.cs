@@ -296,108 +296,7 @@ public ConectadoEN ReadOID (int id
         return conectadoEN;
 }
 
-public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e)
-        {
-            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
-            try
-            {
-                SessionInitializeTransaction();
-                //String sql = @"FROM ConectadoEN c self where FROM c where c.email = :email";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.SetParameter("email", e);
-
-                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
-                SessionCommit();
-            }
-
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
-                    throw ex;
-                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
-            }
-
-
-            finally
-            {
-                SessionClose();
-            }
-
-            return result;
-        }
-
-public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e)
-        {
-            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
-            try
-            {
-                SessionInitializeTransaction();
-                //String sql = @"FROM ConectadoEN c self where FROM c where c.alias = :alias";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.SetParameter("alias", e);
-
-                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
-                SessionCommit();
-            }
-
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
-                    throw ex;
-                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
-            }
-
-
-            finally
-            {
-                SessionClose();
-            }
-
-            return result;
-        }
-
-public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e)
-        {
-            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
-            try
-            {
-                SessionInitializeTransaction();
-                //String sql = @"FROM ConectadoEN c where c.password = :password";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
-                query.SetParameter("password", e);
-
-                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
-                SessionCommit();
-            }
-
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
-                    throw ex;
-                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
-            }
-
-
-            finally
-            {
-                SessionClose();
-            }
-
-            return result;
-        }
-       
-        
-
-
-
-
-        public void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs)
+public void RelFavorito (int p_Conectado_OID, System.Collections.Generic.IList<int> p_esFavorito_OIDs)
 {
         OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN conectadoEN = null;
         try
@@ -596,43 +495,89 @@ public void Suscribir (ConectadoEN conectado)
                 SessionClose ();
         }
 }
-public void UnrelPuntuacion (int p_Conectado_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs)
-{
-        try
+        public void UnrelPuntuacion(int p_Conectado_OID, System.Collections.Generic.IList<int> p_puntuancion_OIDs)
         {
-                SessionInitializeTransaction ();
+            try
+            {
+                SessionInitializeTransaction();
                 OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN conectadoEN = null;
-                conectadoEN = (ConectadoEN)session.Load (typeof(ConectadoEN), p_Conectado_OID);
+                conectadoEN = (ConectadoEN)session.Load(typeof(ConectadoEN), p_Conectado_OID);
 
                 OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN puntuancionENAux = null;
-                if (conectadoEN.Puntuancion != null) {
-                        foreach (int item in p_puntuancion_OIDs) {
-                                puntuancionENAux = (OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN)session.Load (typeof(OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN), item);
-                                if (conectadoEN.Puntuancion.Contains (puntuancionENAux) == true) {
-                                        conectadoEN.Puntuancion.Remove (puntuancionENAux);
-                                        puntuancionENAux.Puntua = null;
-                                }
-                                else
-                                        throw new ModelException ("The identifier " + item + " in p_puntuancion_OIDs you are trying to unrelationer, doesn't exist in ConectadoEN");
+                if (conectadoEN.Puntuancion != null)
+                {
+                    foreach (int item in p_puntuancion_OIDs)
+                    {
+                        puntuancionENAux = (OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN)session.Load(typeof(OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN), item);
+                        if (conectadoEN.Puntuancion.Contains(puntuancionENAux) == true)
+                        {
+                            conectadoEN.Puntuancion.Remove(puntuancionENAux);
+                            puntuancionENAux.Puntua = null;
                         }
+                        else
+                            throw new ModelException("The identifier " + item + " in p_puntuancion_OIDs you are trying to unrelationer, doesn't exist in ConectadoEN");
+                    }
                 }
 
-                session.Update (conectadoEN);
-                SessionCommit ();
-        }
+                session.Update(conectadoEN);
+                SessionCommit();
+            }
 
-        catch (Exception ex) {
-                SessionRollBack ();
+            catch (Exception ex)
+            {
+                SessionRollBack();
                 if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException ("Error in ConectadoCAD.", ex);
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
         }
-
-
-        finally
+        public void UnrelComent(int p_Conectado_OID, System.Collections.Generic.IList<int> p_coment_OIDs)
         {
-                SessionClose ();
+            try
+            {
+                SessionInitializeTransaction();
+                OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN conectadoEN = null;
+                conectadoEN = (ConectadoEN)session.Load(typeof(ConectadoEN), p_Conectado_OID);
+
+                OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN comentarioENAux = null;
+                if (conectadoEN.Comentario != null)
+                {
+                    foreach (int item in p_coment_OIDs)
+                    {
+                        comentarioENAux = (OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN)session.Load(typeof(OscarsitosGenNHibernate.EN.Oscarsitos.ComentarioEN), item);
+                        if (conectadoEN.Comentario.Contains(comentarioENAux) == true)
+                        {
+                            conectadoEN.Comentario.Remove(comentarioENAux);
+                            comentarioENAux.Escritor = null;
+                        }
+                        else
+                            throw new ModelException("The identifier " + item + " in p_coment_OIDs you are trying to unrelationer, doesn't exist in ConectadoEN");
+                    }
+                }
+
+                session.Update(conectadoEN);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in ConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
         }
-}
-}
+    }
 }

@@ -14,24 +14,41 @@ namespace OscarsitosGenNHibernate.CEN.Oscarsitos
     public partial class ComentarioCEN
     {
 
-        public void Puntuar(int p_comentario_OID, int p_user_OID)
+        public void Puntuar(int p_comentario_OID, int p_user_OID,int voto)
         {
             PuntuancionConectadoCAD _IPunConCAD = new PuntuancionConectadoCAD();
             PuntuancionConectadoEN PunConEN = new PuntuancionConectadoEN();
-            
-            if(_IPunConCAD.ReadComentario(p_comentario_OID) == null )
-            {
+            PuntuancionConectadoCEN PunConCEN = new PuntuancionConectadoCEN();
 
+            ComentarioEN comentEN = _IComentarioCAD.ReadOID(p_comentario_OID);
+            
+            if(_IPunConCAD.ReadUserComentario(p_user_OID,p_comentario_OID) == null )
+            {
+                PunConCEN.New_(voto, p_comentario_OID, p_user_OID);
+                comentEN.Puntuacion += voto;
+                
+            } else
+            {
+                PunConEN = _IPunConCAD.ReadUserComentario(p_user_OID, p_comentario_OID)[0];
+                if (PunConEN.Puntuacion == voto)
+                {
+                    PunConCEN.Destroy(PunConEN.Id);
+                    comentEN.Puntuacion -= voto;
+                }
+                else
+                {
+                    PunConCEN.Destroy(PunConEN.Id);
+                    PunConCEN.New_(voto, p_comentario_OID, p_user_OID);
+                    comentEN.Puntuacion += voto;
+                }
             }
 
-            ComentarioEN comentarioEN = _IComentarioCAD.ReadOID(p_comentario_OID);
+            
 
-            //Initialized ComentarioEN
-            comentarioEN = new ComentarioEN();
-            comentarioEN.Id = p_comentario_OID;
+
             //Call to ComentarioCAD
 
-            _IComentarioCAD.Puntuar(comentarioEN);
+            _IComentarioCAD.Puntuar(comentEN);
         }
     }
 }

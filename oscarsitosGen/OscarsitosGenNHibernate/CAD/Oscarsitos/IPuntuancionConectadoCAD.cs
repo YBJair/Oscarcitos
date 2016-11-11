@@ -12,6 +12,9 @@ PuntuancionConectadoEN ReadUser(int id
                                        );
 PuntuancionConectadoEN ReadComentario(int id
                                        );
+        System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> ReadUserComentario(int id_user, int id_coment);
+
+
 
         void ModifyDefault (PuntuancionConectadoEN puntuancionConectado);
 

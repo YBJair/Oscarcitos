@@ -114,6 +114,40 @@ public PuntuancionConectadoEN ReadOIDDefault (int id
 
             return puntuancionConectadoEN;
         }
+
+        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> ReadUserComentario(int id_user, int id_coment)
+        {
+            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM PuntuancionConectadoEN pc where ((pc.EsPuntuado.Id = :id_coment) and (pc.Puntua.Id = :id_user))";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery("PepeENreadCocheHQL");
+                query.setParameter("id_user", id_user);
+                query.setParameter("id_coment", id_coment);
+
+
+                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.PuntuancionConectadoEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
+                    throw ex;
+                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in PuntuancionConectadoCAD.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
         public System.Collections.Generic.IList<PuntuancionConectadoEN> ReadAllDefault (int first, int size)
 {
         System.Collections.Generic.IList<PuntuancionConectadoEN> result = null;

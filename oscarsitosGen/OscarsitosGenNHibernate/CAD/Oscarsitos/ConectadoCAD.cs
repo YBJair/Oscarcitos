@@ -296,7 +296,7 @@ public ConectadoEN ReadOID (int id
         return conectadoEN;
 }
 
-        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e)
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e)
         {
             System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
@@ -304,8 +304,8 @@ public ConectadoEN ReadOID (int id
                 SessionInitializeTransaction();
                 //String sql = @"FROM ConectadoEN c self where FROM c where c.email = :email";
                 //IQuery query = session.CreateQuery(sql);
-                //query.setParameter("email", e);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.setParameter("email", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
@@ -328,7 +328,7 @@ public ConectadoEN ReadOID (int id
             return result;
         }
 
-        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e)
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e)
         {
             System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
@@ -336,8 +336,8 @@ public ConectadoEN ReadOID (int id
                 SessionInitializeTransaction();
                 //String sql = @"FROM ConectadoEN c self where FROM c where c.alias = :alias";
                 //IQuery query = session.CreateQuery(sql);
-                //query.setParameter("alias", e);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.setParameter("alias", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
@@ -360,7 +360,7 @@ public ConectadoEN ReadOID (int id
             return result;
         }
 
-        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e)
+public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e)
         {
             System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
             try
@@ -368,8 +368,8 @@ public ConectadoEN ReadOID (int id
                 SessionInitializeTransaction();
                 //String sql = @"FROM ConectadoEN c where c.password = :password";
                 //IQuery query = session.CreateQuery(sql);
-                //query.setParameter("password", e);
                 IQuery query = (IQuery)session.GetNamedQuery("ConectadoENreadAtributoHQL");
+                query.setParameter("password", e);
 
                 result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
                 SessionCommit();
@@ -391,37 +391,7 @@ public ConectadoEN ReadOID (int id
 
             return result;
         }
-        public System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadCoche(int oid)
-        {
-            System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> result;
-            try
-            {
-                SessionInitializeTransaction();
-                //String sql = @"FROM PepeEN pp where pp.id = :id";
-                //IQuery query = session.CreateQuery(sql);
-                //query.setParameter("id", oid);
-                IQuery query = (IQuery)session.GetNamedQuery("PepeENreadCocheHQL");
-
-                result = query.List<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN>();
-                SessionCommit();
-            }
-
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is OscarsitosGenNHibernate.Exceptions.ModelException)
-                    throw ex;
-                throw new OscarsitosGenNHibernate.Exceptions.DataLayerException("Error in PepeCAD.", ex);
-            }
-
-
-            finally
-            {
-                SessionClose();
-            }
-
-            return result;
-        }
+       
         
 
 

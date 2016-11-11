@@ -8,11 +8,11 @@ public partial interface IConectadoCAD
 {
 ConectadoEN ReadOIDDefault (int id
                             );
-ConectadoEN ReadAlias(string alias
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadAlias(string e
                             );
-ConectadoEN ReadEmail(string email
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadEmail(string e
                             );
-ConectadoEN ReadPassword(string password
+System.Collections.Generic.IList<OscarsitosGenNHibernate.EN.Oscarsitos.ConectadoEN> ReadPassword(string e
                             );
 
 void ModifyDefault (ConectadoEN conectado);

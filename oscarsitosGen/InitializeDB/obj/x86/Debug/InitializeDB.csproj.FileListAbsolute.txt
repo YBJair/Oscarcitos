@@ -1,3 +1,4 @@
 C:\Users\Usuario\Google Drive\UA\3º\DSM\OIDE_DSM2016\workspace\oscarsitosGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 D:\Users\Usuario\documents\GitHub\Oscarcitos\oscarsitosGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 C:\Users\María94\Documents\GitHub\Oscarcitos\oscarsitosGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\jajb1\Documents\GitHub\Oscarcitos\oscarsitosGen\InitializeDB\bin\Debug\InitializeDB.exe.config
